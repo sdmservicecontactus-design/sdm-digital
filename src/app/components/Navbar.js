@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -20,12 +21,9 @@ export default function Navbar() {
   ]
 
   return (
-    <nav style={{
+    <nav className="nav-animated" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       padding: '0 24px',
-      background: scrolled ? 'rgba(10,10,10,0.85)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(12px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
       transition: 'all 0.3s ease',
     }}>
       <div style={{
@@ -35,21 +33,16 @@ export default function Navbar() {
       }}>
 
         {/* Logo */}
-        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '36px', height: '36px', borderRadius: '10px',
-            background: 'linear-gradient(135deg, #a855f7, #6366f1)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '14px', fontWeight: '700', color: 'white'
-          }}>
-            S
-          </div>
-          <span style={{ fontWeight: '700', fontSize: '18px', color: 'white' }}>
-            SDM <span style={{
-              background: 'linear-gradient(90deg, #a855f7, #6366f1)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'
-            }}>Digital</span>
-          </span>
+        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Image
+            src="/logosmddigital.png"
+            alt="SDM Digital"
+            width={55}
+            height={20}
+            style={{ objectFit: 'contain' }}
+            priority
+            unoptimized
+          />
         </a>
 
         {/* Links escritorio */}

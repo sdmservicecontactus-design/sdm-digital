@@ -63,7 +63,7 @@ const handleSubmit = async () => {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
 
           <div className="hero-tag inline-block mb-6 px-4 py-2 rounded-full text-sm font-medium border border-white/20 bg-white/5 text-white/70">
-            🚀 Diseño · Desarrollo · Mantenimiento
+            🛡️ Seguridad · Desarrollo · Mantenimiento
           </div>
 
           <h1 className="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -77,6 +77,41 @@ const handleSubmit = async () => {
             </span>
             <br />visitas en clientes
           </h1>
+
+          {/* SDM Acronym breakdown */}
+          <div className="hero-sub" style={{
+            display: 'flex', justifyContent: 'center', gap: '16px',
+            flexWrap: 'wrap', marginBottom: '24px'
+          }}>
+            {[
+              { letter: 'S', word: 'Seguridad', color: '#a855f7', icon: '🛡️' },
+              { letter: 'D', word: 'Desarrollo', color: '#6366f1', icon: '⚡' },
+              { letter: 'M', word: 'Mantenimiento', color: '#ec4899', icon: '🔧' },
+            ].map(({ letter, word, color, icon }) => (
+              <div key={letter} style={{
+                display: 'flex', alignItems: 'center', gap: '10px',
+                padding: '10px 20px', borderRadius: '14px',
+                border: `1px solid ${color}40`,
+                background: `${color}10`,
+              }}>
+                <span style={{
+                  fontSize: '28px', fontWeight: '800',
+                  background: `linear-gradient(135deg, ${color}, ${color}aa)`,
+                  WebkitBackgroundClip: 'text', backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent', color: 'transparent',
+                  lineHeight: 1,
+                }}>
+                  {letter}
+                </span>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)', lineHeight: 1 }}>SDM</div>
+                  <div style={{ fontSize: '14px', fontWeight: '600', color: 'rgba(255,255,255,0.85)', lineHeight: 1.3 }}>
+                    {icon} {word}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
           <p className="hero-sub text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto">
             En SDM Digital creamos páginas web profesionales, rápidas y atractivas
